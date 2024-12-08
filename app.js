@@ -1,4 +1,4 @@
-let dificuldade = 1;
+let dificuldade = 10;
 let listaDeNumerosSorteados = [];
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
@@ -31,6 +31,7 @@ function verificarChute() {
                 exibirTextoNaTela('p', mensagemTentativas);
                 document.getElementById('reiniciar').removeAttribute('disabled');
                 document.getElementById('chute').setAttribute('disabled',true);
+                dificuldade = dificuldade +10;
             } else {
                 if (chute > numeroSecreto) {
                         exibirTextoNaTela('p', 'O número secreto é menor');
@@ -47,7 +48,7 @@ function gerarNumeroAleatorio() {
     let quantidadeDeElementosNalista = listaDeNumerosSorteados.length;
     if (quantidadeDeElementosNalista==dificuldade){
         listaDeNumerosSorteados = [];
-        dificuldade = dificuldade *10;
+        
     }
     if (listaDeNumerosSorteados.includes(numeroEscolhido)) {
         return gerarNumeroAleatorio();
